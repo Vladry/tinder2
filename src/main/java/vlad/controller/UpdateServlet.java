@@ -1,11 +1,9 @@
-package com.danit.controller;
+package vlad.controller;
 
-import com.danit.dao.User;
-import com.danit.service.CookieUtil;
-import com.danit.service.UserService;
+import vlad.dao.User;
+import vlad.service.UserService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +12,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
-import static com.danit.controller.LoginFilter.USER_PARAM_ID;
 
 public class UpdateServlet extends HttpServlet {
     private UserService userService;

@@ -1,7 +1,6 @@
-package com.danit.controller;
+package vlad.controller;
 
-import com.danit.dao.User;
-import com.danit.service.UserService;
+import vlad.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

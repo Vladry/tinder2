@@ -1,4 +1,4 @@
-package com.danit.controller;
+package vlad.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;

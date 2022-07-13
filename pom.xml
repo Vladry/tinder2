@@ -79,7 +79,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        com.danit.JettyRun
+                                        vlad.JettyRun
                                     </mainClass>
                                 </manifest>
                             </archive>

@@ -1,17 +1,11 @@
-package com.danit.controller;
+package vlad.controller;
 
-import com.danit.dao.User;
-import com.danit.dao.UserDao;
-import com.danit.dao.UserJdbcDao;
-import com.danit.service.UserService;
+import vlad.service.UserService;
 
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
 
 //@WebServlet(urlPatterns = "/")
 public class LoginServlet extends HttpServlet {

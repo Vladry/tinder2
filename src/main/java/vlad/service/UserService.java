@@ -1,6 +1,6 @@
-package com.danit.service;
+package vlad.service;
 
-import com.danit.dao.User;
+import vlad.dao.User;
 
 import java.io.InputStream;
 import java.util.List;

@@ -1,12 +1,8 @@
-package com.danit.dao;
+package vlad.dao;
 
 //import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
 import org.postgresql.ds.PGPoolingDataSource;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import javax.sql.PooledConnection;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;

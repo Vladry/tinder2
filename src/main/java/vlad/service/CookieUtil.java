@@ -1,4 +1,4 @@
-package com.danit.service;
+package vlad.service;
 
 import org.eclipse.jetty.util.StringUtil;
 

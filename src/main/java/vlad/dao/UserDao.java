@@ -1,4 +1,4 @@
-package com.danit.dao;
+package vlad.dao;
 
 import java.io.InputStream;
 import java.util.List;

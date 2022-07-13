@@ -1,4 +1,4 @@
-package com.danit.controller;
+package vlad.controller;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 public class TemplateEngine {

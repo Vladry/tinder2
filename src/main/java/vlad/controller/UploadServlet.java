@@ -1,8 +1,8 @@
-package com.danit.controller;
+package vlad.controller;
 
-import com.danit.dao.User;
-import com.danit.service.CookieUtil;
-import com.danit.service.UserService;
+import vlad.dao.User;
+import vlad.service.CookieUtil;
+import vlad.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -12,13 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Optional;
 
-import static com.danit.controller.LoginFilter.USER_PARAM_ID;
+import static vlad.controller.LoginFilter.USER_PARAM_ID;
 
 /**
  * http://localhost:8088/upload

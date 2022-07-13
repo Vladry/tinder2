@@ -1,17 +1,14 @@
-package com.danit.controller;
+package vlad.controller;
 
-import com.danit.service.CookieUtil;
-import com.danit.service.UserService;
+import vlad.service.CookieUtil;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
 
-import static com.danit.controller.LoginFilter.USER_PARAM_ID;
+import static vlad.controller.LoginFilter.USER_PARAM_ID;
 
 public class LogoutServlet extends HttpServlet {
     private TemplateEngine templateEngine;

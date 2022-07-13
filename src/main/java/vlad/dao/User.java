@@ -1,4 +1,4 @@
-package com.danit.dao;
+package vlad.dao;
 
 public class User {
     private Long id;

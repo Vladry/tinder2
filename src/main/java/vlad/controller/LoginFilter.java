@@ -1,8 +1,8 @@
-package com.danit.controller;
+package vlad.controller;
 
-import com.danit.dao.User;
-import com.danit.service.CookieUtil;
-import com.danit.service.UserService;
+import vlad.dao.User;
+import vlad.service.CookieUtil;
+import vlad.service.UserService;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -14,7 +14,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.Set;
