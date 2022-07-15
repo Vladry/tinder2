@@ -1,4 +1,5 @@
-package vlad.controller;
+package vlad.servlets;
+
 
 import vlad.service.UserService;
 

@@ -1,4 +1,4 @@
-package vlad.controller;
+package vlad.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;

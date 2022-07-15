@@ -1,17 +1,23 @@
 package vlad.service;
 
-import vlad.dao.User;
+import vlad.dao.UserJdbcDao;
+import vlad.domain.User;
 
-import java.io.InputStream;
-import java.util.List;
+import java.util.Optional;
 
-public interface UserService {
-    boolean create(User user);
-    User read(Long id);
-    void update(User user);
-    boolean delete(long id);
-    List<User> findAll();
-    User findByLoginPass(String login,String password);
-    void uploadImage(Long id, InputStream image);
-    byte[] getImage(Long id);
+public class UserService {
+    private final UserJdbcDao userDao;
+
+    public UserService(UserJdbcDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public Optional<User> findById(Long id) {
+        return userDao.retrieveById(id);
+    }
+
+    public byte[] getImage(Long id) {
+        return userDao.getImage(id);
+    }
+
 }
