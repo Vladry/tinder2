@@ -8,9 +8,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import vlad.controller.TemplateEngine;
 import vlad.dao.UserJdbcDao;
 import vlad.service.UserService;
-import vlad.servlets.FileServlet;
-import vlad.servlets.LoginFilter;
-import vlad.servlets.UserServlet;
+import vlad.servlets.*;
 
 import javax.servlet.*;
 //import javax.servlet.DispatcherType;
@@ -34,9 +32,11 @@ public class JettyRun {
         Server server = new Server(port);
         ServletContextHandler handler = new ServletContextHandler();
 
-        handler.addFilter(new FilterHolder(new LoginFilter(templateEngine, userService)), "/*", EnumSet.of(DispatcherType.REQUEST));
+        handler.addFilter(new FilterHolder(new LoginFilter(templateEngine)), "/*", EnumSet.of(DispatcherType.REQUEST));
         handler.addServlet(new ServletHolder(new FileServlet()), "/assets/*");
         handler.addServlet(new ServletHolder(new UserServlet(templateEngine, userService)), "/users");
+        handler.addServlet(new ServletHolder(new RegistrationServlet(templateEngine, userService)), "/registration");
+        handler.addServlet(new ServletHolder(new LoginServlet(userService)), "/login");
 
         server.setHandler(handler);
         server.start();

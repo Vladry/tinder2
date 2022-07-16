@@ -15,6 +15,8 @@ public class UserService {
     public Optional<User> findById(Long id) {
         return userDao.retrieveById(id);
     }
+    public Optional<User> findByEmail(String email){return userDao.retrieveByEmail(email);}
+    public Optional<User> findByLogin(String login){return userDao.retrieveByLogin(login);}
 
     public byte[] getImage(Long id) {
         return userDao.getImage(id);

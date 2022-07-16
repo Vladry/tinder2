@@ -48,3 +48,4 @@ INSERT INTO tinder.likes (liked_by, liked_who) VALUES
 (3,4);
 SELECT * FROM tinder.likes;
 
+SELECT * from tinder.users;

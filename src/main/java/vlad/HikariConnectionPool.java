@@ -10,9 +10,9 @@ public class HikariConnectionPool {
         public HikariConnectionPool() {
             hikariSource = new HikariDataSource();
             hikariSource.setDriverClassName("org.postgresql.ds.PGSimpleDataSource");
-            hikariSource.setJdbcUrl("jdbc:postgresql://ec2-52-86-177-34.compute-1.amazonaws.com:5432/d7g10jrgsjruk4");
-            hikariSource.setUsername("mtmaprkfztrfne");
-            hikariSource.setPassword("d727d367387272970efb9ca62ff523bb77695ebf5f9a7e7b83af48e216e2fb64");
+            hikariSource.setJdbcUrl("jdbc:postgresql://ec2-52-20-166-21.compute-1.amazonaws.com:5432/d6lc60vtmh2mi7");
+            hikariSource.setUsername("bstbokqjlzdjsh");
+            hikariSource.setPassword("d5b8cccdea56d6f7d8fc4bff397feafaed66103c456562e2d3347618796b2bd9");
             hikariSource.setMinimumIdle(1);
             hikariSource.setMaximumPoolSize(10);
         }
