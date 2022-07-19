@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class UserServlet extends HttpServlet {
+public class UserProfileServlet extends HttpServlet {
     private final TemplateEngine templateEngine;
     private final UserService userService;
 
-    public UserServlet(TemplateEngine templateEngine, UserService userService) {
+    public UserProfileServlet(TemplateEngine templateEngine, UserService userService) {
         this.templateEngine = templateEngine;
         this.userService = userService;
     }

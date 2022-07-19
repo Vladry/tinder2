@@ -1,13 +1,10 @@
 <html lang="en">
-<head>
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <!-- Custom styles for this template -->
-<#--    <link rel="stylesheet" href="/assets/css/style.css">-->
-</head>
+<#--<head>-->
+<#--    <!-- Bootstrap core CSS &ndash;&gt;-->
+<#--    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">-->
+<#--    <!-- Custom styles for this template &ndash;&gt;-->
+<#--    <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>-->
+<#--</head>-->
 
 <body>
     <form action="/users" method="post">

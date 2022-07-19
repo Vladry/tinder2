@@ -18,7 +18,7 @@ public class LoginFilter implements Filter {
     private String id;
     private final TemplateEngine templateEngine;
 
-    public LoginFilter(TemplateEngine templateEngine){
+    public LoginFilter(TemplateEngine templateEngine) {
         this.templateEngine = templateEngine;
     }
 
@@ -31,19 +31,22 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
+//        if (req.getAttribute("processed")!=null) return;
         Map<String, Object> params = new HashMap<>();
         String path = req.getServletPath();
         Cookie[] cookies = req.getCookies();
-        System.out.println("servletPath(): " + req.getServletPath());
 
         Set<String> allowedUrls = Set.of("/registration", "/login", "/assets");
-        if(allowedUrls.contains(path)) filterChain.doFilter(req, resp);
+        if (allowedUrls.contains(path)) filterChain.doFilter(req, resp);
 
-        Cookie cookieId = Arrays.stream(cookies).filter((cookie)->"id".equals(cookie.getName())).findFirst().orElse(null);
+        Cookie cookieId = Arrays.stream(cookies).filter(
+                        (cookie) -> "id".equals(cookie.getName())
+                )
+                .findFirst().orElse(null);
         if (cookieId != null && cookieId.getValue() != null) {
             filterChain.doFilter(req, resp);
             req.getRequestDispatcher(path).forward(req, resp);
-        }else {
+        } else {
             templateEngine.render("login.ftl", params, resp);
         }
     }
