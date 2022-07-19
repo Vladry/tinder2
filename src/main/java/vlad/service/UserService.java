@@ -21,8 +21,8 @@ public class UserService {
     public Optional<User> findByLogin(String login){return userDao.retrieveByLogin(login);}
 
     public List<Long> findLikedUserIds(Long currentUserId){return userDao.findLikedUserIds(currentUserId);};
-
-    public Set<User> findLikedUsers(List<Long> userIds){return userDao.findLikedUsers(userIds);};
+    public List<User> findSelectedUsers(List<Long> likedUserIds){return userDao.findSelectedUsers(likedUserIds);};
+    public List<Long> findUnlikedUserIds(Long currentUserId){return userDao.findUnlikedUserIds(currentUserId);};
 
     public void createUser(String name, String login, String email, String avatar){
         userDao.createUser(name, login, email, avatar);

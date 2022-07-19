@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     Consumer<User> setUser = (usr) -> {
-        System.out.println("logged in " + usr);
+//        System.out.println("logged in " + usr);
         this.user = usr;
     };
 

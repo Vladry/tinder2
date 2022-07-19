@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>People list</title>
+    <title>Liked people list</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!-- Bootstrap core CSS -->
@@ -21,12 +21,18 @@
 </head>
 <body>
 <h2>Your liked people list</h2>
+<br>
+<p><a href="/create_likes">go like new people</a></p>
+<p><a href="/logout">logout</a></p>
+<br>
 <div class="container">
     <div class="row">
+
         <div class="col-8 offset-2">
             <div class="panel panel-default user_panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">User List</h3>
+
                 </div>
                 <div class="panel-body">
                     <div class="table-container">

@@ -7,7 +7,7 @@
 <#--</head>-->
 
 <body>
-    <form action="/users" method="post">
+    <form action="/liked" method="post">
         <div class="form-group">
             Name: <input type="text" name="login" placeholder="enter login" class="form-control"/> <br/>
             Name: <input type="password" name="password" placeholder="enter password" class="form-control"/> <br/>

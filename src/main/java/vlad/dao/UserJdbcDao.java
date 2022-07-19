@@ -1,11 +1,12 @@
 package vlad.dao;
 
 import com.zaxxer.hikari.HikariDataSource;
-import vlad.NoDataFoundException;
 import vlad.domain.User;
 
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UserJdbcDao implements Dao<User> {
@@ -151,16 +152,16 @@ public class UserJdbcDao implements Dao<User> {
         return likedUserIds;
     }
 
-    public Set<User> findLikedUsers(List<Long> idList) {
+    public List<User> findSelectedUsers(List<Long> likedUserIds) {
         // подготовка списка id типа List<Long> для передачу в БД виде типа SQL- специфичного массива Array с типом SQL int:
         // сначала кастим Джава-Long в Integer:
-        List<Integer> idListInt = idList.stream().map(Math::toIntExact).collect(Collectors.toList());
+        List<Integer> idListInt = likedUserIds.stream().map(Math::toIntExact).collect(Collectors.toList());
         // создаём простой массив idArray типа Integer:
-        Integer[] idArray = new Integer[idList.size()];
+        Integer[] idArray = new Integer[likedUserIds.size()];
         // теперь переносим данные из списка List<Integer> idListInt во вновь-созданный массив idArray:
         idListInt.toArray(idArray);
 
-        Set<User> likedUsers = new HashSet<>();
+        List<User> likedUsers = new ArrayList<>();
         try (Connection connection = hDataSource.getConnection()) {
             connection.setAutoCommit(false);
             connection.setSchema("tinder");
@@ -190,7 +191,6 @@ public class UserJdbcDao implements Dao<User> {
                 avatar = rs.getString("avatar");
                 likedUsers.add(new User(id, name, email, login, avatar));
             }
-//            System.out.println("likedUsers: " + likedUsers);
             return likedUsers;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -217,5 +217,30 @@ public class UserJdbcDao implements Dao<User> {
             System.out.println(e.getMessage());
         }
     }
+
+    //--------------------
+
+
+    public List<Long> findUnlikedUserIds(Long currentUserId) {
+        List<Long> unLikedUserIds = new ArrayList<>();
+        try (Connection connection = hDataSource.getConnection()) {
+            connection.setAutoCommit(false);
+            connection.setSchema("tinder");
+            PreparedStatement st = connection.prepareStatement("SELECT likes.liked_who from likes where " +
+                    "liked_by != ?");
+            st.setLong(1, currentUserId);
+            connection.commit();
+            ResultSet rs = st.executeQuery();
+            if (!rs.isBeforeFirst()) return unLikedUserIds;
+            while (rs.next()) {
+                unLikedUserIds.add(rs.getLong("liked_who"));
+            }
+            return unLikedUserIds;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return unLikedUserIds;
+    }
+
 
 }

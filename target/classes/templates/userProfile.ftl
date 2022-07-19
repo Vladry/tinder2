@@ -19,6 +19,8 @@
 
 </p>
 <br/>
-<p><a href="/users">go like users</a></p>
+<p><a href="/liked">see your contacts</a></p>
+<p><a href="/create_likes">go like new people</a></p>
+<p><a href="/logout">logout</a></p>
 </body>
 </html>

@@ -15,5 +15,6 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Arrays.stream(req.getCookies()).filter((cookie) -> cookie.getName().equals("id"))
                 .peek((cookie) -> cookie.setMaxAge(0)).findFirst().ifPresent(resp::addCookie);
+        resp.sendRedirect("/login");
     }
 }

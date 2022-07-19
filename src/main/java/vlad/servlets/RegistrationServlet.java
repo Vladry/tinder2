@@ -44,6 +44,6 @@ public class RegistrationServlet extends HttpServlet {
 
         params.put("likedUsers", null);
 
-        templateEngine.render("users.ftl", params, resp);
+        templateEngine.render("userProfile.ftl", params, resp);
     }
 }

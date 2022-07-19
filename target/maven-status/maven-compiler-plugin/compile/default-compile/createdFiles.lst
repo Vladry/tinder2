@@ -1,13 +1,14 @@
 vlad\servlets\ShowImageServlet.class
 vlad\service\UserService.class
-vlad\servlets\UsersServlet.class
 vlad\JettyRun.class
 vlad\servlets\RegistrationServlet.class
 vlad\dao\UserJdbcDao.class
+vlad\servlets\LikedServlet.class
 vlad\servlets\LogOutServlet.class
 vlad\servlets\LoginFilter.class
 vlad\servlets\UserProfileServlet.class
 vlad\servlets\FileServlet.class
+vlad\servlets\CreateLikesServlet.class
 vlad\domain\User.class
 vlad\HikariConnectionPool.class
 vlad\controller\TemplateEngine$1.class

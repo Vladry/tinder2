@@ -30,7 +30,6 @@ public class UserProfileServlet extends HttpServlet {
         Optional<User> u = userService.findById(id);
         u.ifPresentOrElse((user)->params.put("user", user), ()-> params.put("message", "user with id: "+ id +"not found"));
 
-//        u.orElseThrow(() -> new NoDataFoundException("User", id));
         templateEngine.render("userProfile", params, resp);
     }
 
