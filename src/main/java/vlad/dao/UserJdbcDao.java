@@ -218,29 +218,37 @@ public class UserJdbcDao implements Dao<User> {
         }
     }
 
-    //--------------------
 
+    public List<User> findAll(int limit, int offset) {
+        List<User> likedUsers = new ArrayList<>();
 
-    public List<Long> findUnlikedUserIds(Long currentUserId) {
-        List<Long> unLikedUserIds = new ArrayList<>();
         try (Connection connection = hDataSource.getConnection()) {
-            connection.setAutoCommit(false);
             connection.setSchema("tinder");
-            PreparedStatement st = connection.prepareStatement("SELECT likes.liked_who from likes where " +
-                    "liked_by != ?");
-            st.setLong(1, currentUserId);
-            connection.commit();
+            PreparedStatement st = connection.prepareStatement("SELECT * FROM users LIMIT ? OFFSET ?");
+            st.setInt(1, limit);
+            st.setInt(2, offset);
+
             ResultSet rs = st.executeQuery();
-            if (!rs.isBeforeFirst()) return unLikedUserIds;
+            if (!rs.isBeforeFirst()) return likedUsers;
+            long id;
+            String email;
+            String name;
+            String login;
+            String avatar;
             while (rs.next()) {
-                unLikedUserIds.add(rs.getLong("liked_who"));
+                id = rs.getLong("id");
+                name = rs.getString("name");
+                login = rs.getString("login");
+                email = rs.getString("email");
+                avatar = rs.getString("avatar");
+                likedUsers.add(new User(id, name, email, login, avatar));
             }
-            return unLikedUserIds;
+            return likedUsers;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return unLikedUserIds;
+        return likedUsers;
     }
 
 
-}
+  }

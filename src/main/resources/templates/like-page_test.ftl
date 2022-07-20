@@ -51,7 +51,7 @@
 
 <h2>People you have not liked yet</h2>
 <br>
-<p><a href="/create_likes">go like new people</a></p>
+
 <p><a href="/logout">logout</a></p>
 <br>
 <div class="container">

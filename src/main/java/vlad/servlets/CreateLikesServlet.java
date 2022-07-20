@@ -24,15 +24,10 @@ public class CreateLikesServlet extends HttpServlet {
             Map<String, Object> params = new HashMap<>();
             Cookie[] cookies = req.getCookies();
             Optional<Cookie> optCookieId = Arrays.stream(cookies).filter((c) -> "id".equals(c.getName())).findFirst();
-            Long currentUserId = null;
-            List<Long> unLikedUserIds = null;
-            List<User> unLikedUsers = null;
             if (optCookieId.isPresent()) {
-                currentUserId = Long.parseLong(optCookieId.get().getValue());
-                unLikedUserIds = userService.findUnlikedUserIds(currentUserId);
-                final long excludeId = currentUserId;
-                unLikedUsers = userService.findSelectedUsers(unLikedUserIds);
-                unLikedUsers = unLikedUsers.stream().filter((u)->u.getId() != excludeId).collect(Collectors.toList());
+                Long currentUserId = Long.parseLong(optCookieId.get().getValue());
+                int limit = 200, offset = 0;
+                List<User> unLikedUsers = userService.findUnlikedUsers(currentUserId, limit, offset);
                 params.put("unLikedUsers", unLikedUsers);
             }
 
